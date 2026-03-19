@@ -8,28 +8,59 @@
 <style>
 body {
     margin: 0;
-    font-family: Arial;
+    font-family: Arial, sans-serif;
     background: linear-gradient(135deg,#064e3b,#022c22);
     color: white;
     text-align: center;
 }
 
+/* ANIMASI INTRO */
+#intro {
+    font-size: 28px;
+    color: gold;
+    margin-top: 30px;
+    height: 40px;
+    letter-spacing: 2px;
+    animation: glow 2s infinite;
+}
+
+/* efek glow */
+@keyframes glow {
+    0% { text-shadow: 0 0 5px gold; }
+    50% { text-shadow: 0 0 20px gold; }
+    100% { text-shadow: 0 0 5px gold; }
+}
+
+/* HEADER */
 h1 {
     color: gold;
     font-size: 40px;
+    margin-top: 20px;
 }
 
+/* CONTAINER CARD */
 .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
     padding: 20px;
 }
 
+/* CARD */
 .card {
     background: rgba(255,255,255,0.05);
     margin: 15px;
     padding: 20px;
     border-radius: 15px;
+    transition: 0.3s;
 }
 
+.card:hover {
+    transform: scale(1.05);
+    background: rgba(255,255,255,0.1);
+}
+
+/* BUTTON THR */
 .btn {
     background: gold;
     color: black;
@@ -39,26 +70,25 @@ h1 {
     font-weight: bold;
     display: inline-block;
     margin-top: 10px;
+    animation: glow 2s infinite;
 }
 
 .btn:hover {
     background: orange;
 }
 
-/* efek kelap kelip */
-@keyframes glow {
-    0% { box-shadow: 0 0 5px gold; }
-    50% { box-shadow: 0 0 20px gold; }
-    100% { box-shadow: 0 0 5px gold; }
-}
-
-.btn {
-    animation: glow 2s infinite;
+/* FOOTER */
+.footer {
+    margin-top: 30px;
+    padding: 20px;
+    opacity: 0.7;
 }
 </style>
 </head>
 
 <body>
+
+<div id="intro"></div>
 
 <h1>🌙 Selamat Ramadhan</h1>
 <p>Minal Aidzin Walfaizin 🙏</p>
@@ -68,19 +98,42 @@ h1 {
 <div class="card">
 <h2>💸 Minta THR</h2>
 <p>Yang baik hati silakan kirim THR 😁</p>
-
-<a class="btn" href="https://saweria.co/RexzCihuy" target="_blank">
-💰 Kirim THR
-</a>
-
+<a class="btn" href="https://saweria.co/RexzCihuy" target="_blank">💰 Kirim THR</a>
 </div>
 
 <div class="card">
-<h2>📿 Doa</h2>
-<p>Semoga rezeki kita lancar dan berkah</p>
+<h2>📿 Doa Hari Ini</h2>
+<p>Semoga puasanya lancar dan penuh berkah</p>
+</div>
+
+<div class="card">
+<h2>🍽️ Menu Buka</h2>
+<p>Kolak + Es Teh + Gorengan 🔥</p>
+</div>
+
+<div class="card">
+<h2>🎁 Event Lebaran</h2>
+<p>Bagi-bagi hadiah & THR spesial!</p>
 </div>
 
 </div>
+
+<div class="footer">
+<p>© 2026 RexzHub Ramadhan Edition</p>
+</div>
+
+<script>
+const text = "👋 Hello aku Rexz - Minal Aidzin Walfaizin 🙏";
+let i = 0;
+function typing() {
+    if (i < text.length) {
+        document.getElementById("intro").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typing, 50);
+    }
+}
+typing();
+</script>
 
 </body>
 </html>
